@@ -16,7 +16,7 @@ const Header = () => {
                         >
                             <img src="" alt="" />
                             <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                                Go Food
+                                <Link to='/home'> Go Food</Link>
                             </span>
                         </Link>
                         <ul className="flex items-center hidden space-x-8 lg:flex">
