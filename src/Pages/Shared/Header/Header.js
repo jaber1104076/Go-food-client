@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/ContextProvider';
+import logo from '../../../assets/images/favico.png'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +26,7 @@ const Header = () => {
                             title="Go Food"
                             className="inline-flex items-center mr-8"
                         >
-                            <img src="" alt="" />
+                            <img src={logo} className="w-10 h-10" alt="" />
                             <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
                                 Go Food
                             </span>
@@ -76,7 +77,7 @@ const Header = () => {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/"
+                                            to="/addservice"
                                             aria-label="Add Service"
                                             title="Add Service"
                                             className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
