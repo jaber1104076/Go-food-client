@@ -9,14 +9,14 @@ const Header = () => {
                 <div className="relative flex items-center justify-between">
                     <div className="flex items-center">
                         <Link
-                            href="/"
+                            href="/home"
                             aria-label="Company"
                             title="Company"
                             className="inline-flex items-center mr-8"
                         >
                             <img src="" alt="" />
                             <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                                <Link to='/home'> Go Food</Link>
+                                Go Food
                             </span>
                         </Link>
                         <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -52,12 +52,12 @@ const Header = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="/"
+                                    to="/blog"
                                     aria-label="About us"
                                     title="About us"
                                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                                 >
-                                    About us
+                                    Blogs
                                 </Link>
                             </li>
                         </ul>
