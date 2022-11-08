@@ -6,7 +6,7 @@ import { FaGoogle } from 'react-icons/fa'
 import { AuthContext } from '../../Context/ContextProvider';
 
 const Login = () => {
-    const { LogIn } = useContext(AuthContext)
+    const { LogIn, googleSignIn } = useContext(AuthContext)
     const [error, setError] = useState()
     useTitle('login')
     const handleLogIn = e => {
@@ -26,6 +26,15 @@ const Login = () => {
                 setError(err.message)
             })
 
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch((err) => console.log(err))
     }
 
     return (
@@ -61,7 +70,7 @@ const Login = () => {
                         <span className='mx-auto'>Do not have account? <Link className='text-orange-500 text-lg' to='/signup'>Signup</Link></span>
                         <div className='mx-auto'>
                             <p className='text-blue-500 text-xl'>Or login with</p>
-                            <button className='text-2xl p-5' ><FaGoogle></FaGoogle></button>
+                            <button onClick={handleGoogleSignIn} className='text-2xl p-5' ><FaGoogle></FaGoogle></button>
                         </div>
                     </div>
                 </div>
