@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ service }) => {
-    const { serviceName, price, description, image } = service
+    const { serviceName, price, description, image, _id } = service
     return (
         <div className='border-4 rounded-md'>
             <div className="max-w-sm mx-auto group hover:no-underline focus:no-underline p-4">
@@ -12,8 +12,11 @@ const ServiceCard = ({ service }) => {
                     <span className="text-2xl dark:text-gray-400">${price}</span>
                     <p>{description.slice(0, 100) + "..."}</p>
                 </div>
-                <button className='btn btn-outline'>Details</button>
+                <Link to={`/services/${_id}`}>
+                    <button className='btn btn-outline mx-auto'>Details</button>
+                </Link>
             </div>
+
         </div>
     );
 };
