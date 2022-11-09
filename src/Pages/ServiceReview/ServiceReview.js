@@ -1,17 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import ClientReview from './ClientReview';
 import PlaceReview from './PlaceReview';
 import ServiceDetailCard from './ServiceDetailCard';
 
 const ServiceReview = () => {
     const [services, setServices] = useState([])
+    const [reviews, setReviews] = useState([])
     const router = useParams()
     const { id } = router;
+
     fetch(`http://localhost:5000/services/${id}`)
         .then(res => res.json())
         .then(data => {
             setServices(data)
         })
+
+
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2'>
@@ -32,8 +42,14 @@ const ServiceReview = () => {
                     }
                 </section>
             </div>
-            <section>
-                <h3>reviews option</h3>
+            <section className='mt-5'>
+                <h2 className="mb-4 text-2xl font-semibold text-center text-indigo-600">Customer Reviews</h2>
+                {
+                    reviews.map(review => <ClientReview
+                        key={review._id}
+                        review={review}
+                    ></ClientReview>)
+                }
             </section>
         </div>
     );
