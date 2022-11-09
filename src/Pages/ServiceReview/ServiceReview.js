@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import PlaceReview from './PlaceReview';
 import ServiceDetailCard from './ServiceDetailCard';
 
 const ServiceReview = () => {
     const [services, setServices] = useState([])
     const router = useParams()
     const { id } = router;
-    console.log(id)
     fetch(`http://localhost:5000/services/${id}`)
         .then(res => res.json())
         .then(data => {
@@ -24,7 +24,12 @@ const ServiceReview = () => {
                     }
                 </section>
                 <section>
-                    <h3>reviews by client</h3>
+                    {
+                        services.map(service => <PlaceReview
+                            key={service._id}
+                            service={service}
+                        ></PlaceReview>)
+                    }
                 </section>
             </div>
             <section>
