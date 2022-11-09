@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 import useTitle from '../../Hooks/useTitle';
 import img from '../../assets/images/signup.png'
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa'
 import { AuthContext } from '../../Context/ContextProvider';
 
 const SignUp = () => {
     const { CreateUser, googleSignIn } = useContext(AuthContext)
     const [error, setError] = useState("")
+    const navigate = useNavigate()
     useTitle('SignUp')
     const handleSignUp = e => {
         e.preventDefault()
@@ -21,6 +22,8 @@ const SignUp = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user)
+                form.reset()
+                navigate('/')
             })
             .catch((err) => {
                 console.log(err)

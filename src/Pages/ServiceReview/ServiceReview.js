@@ -10,11 +10,13 @@ const ServiceReview = () => {
     const router = useParams()
     const { id } = router;
 
-    fetch(`http://localhost:5000/services/${id}`)
-        .then(res => res.json())
-        .then(data => {
-            setServices(data)
-        })
+    useEffect(() => {
+        fetch(`http://localhost:5000/services/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setServices(data)
+            })
+    }, [id])
 
 
     useEffect(() => {

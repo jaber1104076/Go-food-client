@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { Form } from 'react-router-dom';
+import { Form, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/ContextProvider';
 
 const PlaceReview = ({ service }) => {
     const { user } = useContext(AuthContext)
     const { serviceName } = service;
+    const navigate = useNavigate()
     const handlePlaceOrder = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -33,6 +34,7 @@ const PlaceReview = ({ service }) => {
             .then(data => {
                 if (data.acknowledged) {
                     toast.success('service added succesfully')
+                    navigate('/')
                 }
                 console.log(data)
             })
