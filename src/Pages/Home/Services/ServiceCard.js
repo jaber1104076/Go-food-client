@@ -16,7 +16,6 @@ const ServiceCard = ({ service }) => {
                     <button className='btn btn-outline mx-auto'>Details</button>
                 </Link>
             </div>
-
         </div>
     );
 };
