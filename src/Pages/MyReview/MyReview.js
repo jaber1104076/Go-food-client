@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/ContextProvider';
 import DetailReview from './DetailReview';
 
@@ -7,6 +8,7 @@ const MyReview = () => {
     const { user } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
     const [refresh, setRefresh] = useState(false)
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch(`http://localhost:5000/review?email=${user?.email}`)
@@ -21,7 +23,7 @@ const MyReview = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {
-                    toast.success('dleted succesfully')
+                    toast.success('deleted succesfully')
                     setRefresh(!refresh)
                 }
             })
@@ -29,7 +31,8 @@ const MyReview = () => {
     }
 
     const handleUpdate = (id) => {
-        console.log(id)
+        navigate(`/reviews/update/${id}`)
+        //console.log(id)
     }
 
     return (
