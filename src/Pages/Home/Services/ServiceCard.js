@@ -12,9 +12,9 @@ const ServiceCard = ({ service }) => {
                     <span className="text-2xl dark:text-gray-400">${price}</span>
                     <p>{description.slice(0, 100) + "..."}</p>
                 </div>
-                <Link to={`/services/${_id}`}>
-                    <button className='btn btn-outline mx-auto'>Details</button>
-                </Link>
+                <div className='text-center p-4'>
+                    <Link to={`/services/${_id}`}><button className='btn btn-success'>Details</button></Link>
+                </div>
             </div>
         </div>
     );
