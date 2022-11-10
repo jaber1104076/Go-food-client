@@ -34,9 +34,13 @@ const PlaceReview = ({ service }) => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.acknowledged) {
+                if (data.acknowledged && user?.email) {
                     toast.success('service added succesfully')
                     navigate('/')
+                }
+                else {
+                    toast.error('please first logIn')
+                    navigate('/login')
                 }
                 console.log(data)
             })
