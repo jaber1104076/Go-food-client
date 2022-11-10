@@ -11,13 +11,13 @@ const MyReview = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/review?email=${user?.email}`)
+        fetch(`https://b6a11-service-review-server-side-jaber1104076.vercel.app/review?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [user?.email, refresh])
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/review/${id}`, {
+        fetch(`https://b6a11-service-review-server-side-jaber1104076.vercel.app/review/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

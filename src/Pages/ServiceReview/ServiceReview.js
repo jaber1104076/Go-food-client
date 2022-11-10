@@ -11,7 +11,7 @@ const ServiceReview = () => {
     const { id } = router;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://b6a11-service-review-server-side-jaber1104076.vercel.app/services/${id}`)
             .then(res => res.json())
             .then(data => {
                 setServices(data)
@@ -20,7 +20,7 @@ const ServiceReview = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://b6a11-service-review-server-side-jaber1104076.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

@@ -25,7 +25,7 @@ const AddService = () => {
             description: message,
             time: data.getTime()
         }
-        fetch('http://localhost:5000/service', {
+        fetch('https://b6a11-service-review-server-side-jaber1104076.vercel.app/service', {
             method: "POST",
             headers: {
                 'content-type': "application/json"

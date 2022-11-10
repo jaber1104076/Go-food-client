@@ -5,7 +5,7 @@ import ServiceCard from './ServiceCard';
 const Sevices = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://b6a11-service-review-server-side-jaber1104076.vercel.app/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data)
