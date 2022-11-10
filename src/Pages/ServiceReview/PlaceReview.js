@@ -7,6 +7,7 @@ const PlaceReview = ({ service }) => {
     const { user } = useContext(AuthContext)
     const { serviceName } = service;
     const navigate = useNavigate()
+    const data = new Date()
     const handlePlaceOrder = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -21,7 +22,8 @@ const PlaceReview = ({ service }) => {
             image: photoURL,
             rating: rating,
             email: email,
-            description: message
+            description: message,
+            time: data.getTime()
         }
         fetch('http://localhost:5000/reviews', {
             method: "POST",

@@ -47,7 +47,7 @@ const ServiceReview = () => {
             <section className='mt-5'>
                 <h2 className="mb-4 text-2xl font-semibold text-center text-indigo-600">Customer Reviews</h2>
                 {
-                    reviews.map(review => <ClientReview
+                    reviews.sort((a, b) => b.time - a.time).map(review => <ClientReview
                         key={review._id}
                         review={review}
                     ></ClientReview>)

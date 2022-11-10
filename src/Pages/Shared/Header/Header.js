@@ -44,7 +44,7 @@ const Header = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="/services"
+                                    to="/allservices"
                                     aria-label="Services"
                                     title="Services"
                                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"

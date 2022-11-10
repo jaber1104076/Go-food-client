@@ -56,7 +56,7 @@ export const router = createBrowserRouter([
             {
                 path: '/reviews/update/:id',
                 element: <UpdateReview></UpdateReview>
-            }
+            },
         ]
     }
 ])
