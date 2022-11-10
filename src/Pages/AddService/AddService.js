@@ -7,6 +7,7 @@ import useTitle from '../../Hooks/useTitle';
 const AddService = () => {
     const { user } = useContext(AuthContext)
     useTitle('Add Service')
+    const data = new Date()
     const handlePlaceOrder = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -21,7 +22,8 @@ const AddService = () => {
             image: photoURL,
             price: price,
             email: email,
-            description: message
+            description: message,
+            time: data.getTime()
         }
         fetch('http://localhost:5000/service', {
             method: "POST",

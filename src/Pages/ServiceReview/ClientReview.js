@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const ClientReview = ({ review }) => {
     const { description, rating, serviceName, email } = review

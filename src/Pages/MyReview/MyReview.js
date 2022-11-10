@@ -40,7 +40,7 @@ const MyReview = () => {
             <h3 className='text-center text-2xl font-semibold text-indigo-600'>My review</h3>
             <div>
                 {
-                    reviews.map(review => <DetailReview
+                    reviews.sort((a, b) => b.time - a.time).map(review => <DetailReview
                         key={review._id}
                         review={review}
                         handleDelete={handleDelete}
